@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* خلفية رمادي غامق جداً */
+.stApp,
+[data-testid="stAppViewContainer"],
+.main {
+    background: linear-gradient(145deg, #0c0f14 0%, #151921 52%, #1d222d 100%) !important;
+    color: #38bdf8 !important;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* كتل خلفية ضبابية ورا العناصر لإبراز عمق البلور */
+.stApp::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(56, 189, 248, 0.14) 0%, rgba(56, 189, 248, 0) 36%),
+        radial-gradient(circle at 80% 18%, rgba(148, 163, 184, 0.14) 0%, rgba(148, 163, 184, 0) 38%),
+        radial-gradient(circle at 68% 78%, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 40%),
+        radial-gradient(circle at 25% 84%, rgba(71, 85, 105, 0.18) 0%, rgba(71, 85, 105, 0) 42%);
+    filter: blur(30px);
+}
+
+.block-container {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 4.5rem !important;
+}
+
+#MainMenu, footer, header, [data-testid="stHeader"] {
+    visibility: hidden !important;
+}
+
+/* لون الخط بيبي بلو واضح وتفاعل ناعم عند المرور */
+h1, h2, h3, p, label, span, li {
+    color: #38bdf8;
+    transition: color 0.22s ease, transform 0.22s ease, text-shadow 0.22s ease;
+}
+
+p:hover, label:hover, li:hover {
+    color: #7dd3fc !important;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+}
+
+h1:hover, h2:hover, h3:hover {
+    color: #7dd3fc !important;
+    text-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+    transform: translateX(3px);
+}
+
+li:hover {
+    transform: translateX(4px);
+}
+
+/* التبويبات: زجاج رمادي غامق وخط بيبي بلو متفاعل */
+div.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+    background-color: rgba(30, 36, 48, 0.65);
+    padding: 8px;
+    border-radius: 14px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+div.stTabs [data-baseweb="tab"] {
+    color: #7dd3fc !important;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 8px 16px;
+    transition: all 0.22s ease !important;
+}
+
+div.stTabs [data-baseweb="tab"] span {
+    display: inline-block;
+    color: #7dd3fc !important;
+    transition: transform 0.22s ease, color 0.22s ease, text-shadow 0.22s ease;
+}
+
+div.stTabs [data-baseweb="tab"]:hover {
+    background-color: rgba(56, 189, 248, 0.16) !important;
+    color: #bae6fd !important;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.28);
+}
+
+div.stTabs [data-baseweb="tab"]:hover span {
+    transform: scale(1.04);
+    color: #bae6fd !important;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+div.stTabs [aria-selected="true"] {
+    background-color: rgba(2, 132, 199, 0.9) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(125, 211, 252, 0.85) !important;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.4) !important;
+}
+
+div.stTabs [aria-selected="true"] span,
+div.stTabs [aria-selected="true"]:hover span {
+    color: #ffffff !important;
+    text-shadow: none;
+}
+
+/* مربع الإدخال: بلور رمادي غامق شفاف وخط بيبي بلو */
+div[data-baseweb="textarea"],
+div[data-baseweb="textarea"] > textarea,
+textarea {
+    background-color: rgba(24, 29, 39, 0.72) !important;
+    color: #7dd3fc !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 14px !important;
+    backdrop-filter: blur(22px) saturate(155%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(155%) !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.08) !important;
+    transition: all 0.22s ease !important;
+}
+
+div[data-baseweb="textarea"]:hover,
+textarea:hover {
+    border-color: rgba(56, 189, 248, 0.55) !important;
+    color: #bae6fd !important;
+}
+
+div[data-baseweb="textarea"]:focus-within,
+textarea:focus {
+    background-color: rgba(30, 37, 50, 0.88) !important;
+    border-color: rgba(56, 189, 248, 0.85) !important;
+    color: #e0f2fe !important;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.22), 0 10px 24px rgba(2, 132, 199, 0.2) !important;
+}
+
+/* الأزرار: بلور رمادي غامق شفاف وخط بيبي بلو */
+.stButton > button,
+[data-testid="stBaseButton-secondary"],
+[data-testid="stBaseButton-primary"] {
+    background: rgba(36, 43, 56, 0.72) !important;
+    color: #38bdf8 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    backdrop-filter: blur(22px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.10) !important;
+    transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.stButton > button p,
+.stButton > button span,
+[data-testid="stBaseButton-secondary"] p,
+[data-testid="stBaseButton-primary"] p {
+    color: #38bdf8 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.22s ease, color 0.22s ease, text-shadow 0.22s ease !important;
+}
+
+/* الأزرار عند مرور الماوس: تنور أزرق واضح */
+.stButton > button:hover,
+[data-testid="stBaseButton-secondary"]:hover,
+[data-testid="stBaseButton-primary"]:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #7dd3fc !important;
+    transform: translateY(-2px) scale(1.01) !important;
+    box-shadow: 0 12px 26px rgba(2, 132, 199, 0.45), 0 0 18px rgba(56, 189, 248, 0.4) !important;
+}
+
+.stButton > button:hover p,
+.stButton > button:hover span,
+[data-testid="stBaseButton-secondary"]:hover p,
+[data-testid="stBaseButton-primary"]:hover p {
+    color: #ffffff !important;
+    transform: scale(1.03);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+}
+
+.stButton > button:active,
+[data-testid="stBaseButton-secondary"]:active,
+[data-testid="stBaseButton-primary"]:active {
+    background: #0369a1 !important;
+    transform: translateY(0px) scale(0.99) !important;
+    box-shadow: 0 6px 14px rgba(3, 105, 161, 0.35) !important;
+}
+
+/* تفاعل صناديق التنبيه */
+[data-testid="stAlert"] {
+    background-color: rgba(28, 34, 46, 0.76) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 14px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+[data-testid="stAlert"]:hover {
+    transform: translateY(-1px);
+    border-color: rgba(56, 189, 248, 0.55) !important;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2) !important;
+}
+
+/* التابس الفرعية في نص الصفحة وبخط كبير وبيبي بلو */
+.pg-info-center {
+    max-width: 920px;
+    margin: 28px auto;
+    padding: 36px 40px;
+    text-align: center;
+    background: rgba(26, 32, 44, 0.68);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.42),
+        inset 0 1px 1px rgba(255, 255, 255, 0.10);
+}
+
+.pg-info-center h2,
+.pg-info-center h3 {
+    font-size: 2.35rem !important;
+    font-weight: 700 !important;
+    color: #38bdf8 !important;
+    text-shadow: 0 2px 14px rgba(56, 189, 248, 0.28);
+    margin-bottom: 18px !important;
+    transform: none !important;
+}
+
+.pg-info-center p,
+.pg-info-center li {
+    font-size: 1.45rem !important;
+    line-height: 1.75 !important;
+    font-weight: 600 !important;
+    color: #7dd3fc !important;
+    text-shadow: 0 1px 10px rgba(56, 189, 248, 0.22);
+    margin-bottom: 12px !important;
+}
+
+.pg-info-center ul,
+.pg-info-center ol {
+    list-style-position: inside;
+    padding: 0;
+    margin: 14px auto;
+    display: inline-block;
+    text-align: center;
+}
+
+.pg-info-center p:hover,
+.pg-info-center li:hover,
+.pg-info-center h2:hover,
+.pg-info-center h3:hover {
+    color: #bae6fd !important;
+    text-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
+    transform: scale(1.015) !important;
+}
+
+/* الفوتر التفاعلي */
+.amit-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(15, 19, 26, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #7dd3fc;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background-color 0.22s ease, border-color 0.22s ease;
+    z-index: 100;
+}
+
+.amit-footer:hover {
+    background-color: rgba(20, 25, 35, 0.92);
+    border-top-color: rgba(56, 189, 248, 0.45);
+}
+
+.amit-footer span {
+    color: #7dd3fc !important;
+}
+
+.amit-footer a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.amit-footer a:hover {
+    background-color: rgba(56, 189, 248, 0.16);
+    color: #bae6fd;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+}
